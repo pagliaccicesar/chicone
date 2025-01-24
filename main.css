@@ -254,7 +254,9 @@ article { display: none; }
     border-radius: 20px;
 }
 
+
 .info-content .name {
+    /*font-family: "Montserrat";*/
     color: green;
     font-size: var(--fs3);
     font-weight: var(--fw500);
