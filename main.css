@@ -28,7 +28,8 @@ body {
     --smoky-black: black;
     --white1: hsl(0, 0%, 100%);
     --white2: hsl(0, 0%, 98%);
-    --orange-yellow-crayola: hsl(45, 100%, 72%);
+    /*--orange-yellow-crayola: hsl(45, 100%, 72%);*/
+    --orange-yellow-crayola: orange;
     --vegas-gold: hsl(45, 54%, 58%);
     --light-gray: hsl(0, 0%, 84%);
     --light-gray70: hsla(0, 0%, 84%, .7);
