@@ -256,7 +256,7 @@ article { display: none; }
 
 
 .info-content .name {
-    /*font-family: "Montserrat";*/
+    font-family: "Russo One", serif;
     color: green;
     font-size: var(--fs3);
     font-weight: var(--fw500);
