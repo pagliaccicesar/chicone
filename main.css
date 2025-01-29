@@ -747,12 +747,12 @@ article { display: none; }
 /*BLOG*/
 
 .blog-posts { margin-bottom: 10px; }
-
-.blog-posts-list {
+/***************************************************** para hacer 2 columnas, se debe descomentar en grid *********/
+/*.blog-posts-list {
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
-}
+}*/
 
 .blog-posts-item > a {
     position: relative;
@@ -771,9 +771,11 @@ article { display: none; }
         background: var(--eerie-black1);
         z-index: -1;
     }
-
+/******************************************************* para hacer el dibujo en 2 columnas, se debe cambiar width al 100% y sacar margin ********/
 .blog-banner-box {
-    width: 100%;
+    margin: 0 auto;
+    
+    width: 50%;
     height: 200px;
     border-radius: 12px;
     overflow: hidden;
