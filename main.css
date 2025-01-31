@@ -335,15 +335,18 @@ article { display: none; }
 
     .contact-info :is(.contact-link, time, address) {
         color: var(--white2);
-        font-size: var(--fs7);
+        /*font-size: var(--fs7);*/
+        font-size: x-small;
     }
 
     .contact-info address { font-style: normal; }
 
 .contact-title {
-    color: var(--light-gray70);
-    font-size: var(--fs8);
-    text-transform: uppercase;
+    /*color: var(--light-gray70);*/
+    font-size: medium;
+    color: white;
+    /*font-size: var(--fs8);*/
+    /*text-transform: uppercase;*/
     margin-bottom: 2px;
 }
 
