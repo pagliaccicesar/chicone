@@ -207,7 +207,7 @@
 
                         <li class="service-item">
                             <div class="service-icon-box">
-                                <img src="./img/youtube.png" alt="icon" width="80">
+                                <img src="./img/youtube-negro.png" alt="icon" width="80">
                             </div>
 
                             <div class="service-content-box">
@@ -657,7 +657,7 @@
                 <section class="contacto-form">
                     <h3 class="h3 form-title">Formulario de Contacto</h3>
 
-                    <form action="#" class="form" data-form>
+                    <form action="./enviarcorreo.php" class="form" data-form>
                         <div class="input-wrapper">
                             <input type="text" name="fullname" class="form-input" placeholder="Nombre" required data-form-input>
                             <input type="email" name="email" class="form-input" placeholder="Email" required data-form-input>
@@ -670,6 +670,75 @@
                             <span>Enviar mensaje</span>
                         </button>
                     </form>
+                    
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function () {
+                        const form = document.querySelector(".form");
+                        const submitButton = document.querySelector(".form-btn");
+
+                        form.addEventListener("submit", function (event) {
+                        event.preventDefault();
+
+                        // Obtener los valores de los campos
+                        const nombre = document.querySelector("input[name='fullname']").value.trim();
+                        const email = document.querySelector("input[name='email']").value.trim();
+                        const mensaje = document.querySelector("textarea[name='message']").value.trim();
+
+                        // Validar campos obligatorios
+                        if (!nombre || !email || !mensaje) {
+                            alert("Por favor, completa todos los campos.");
+                            return;
+                        }
+
+                        // Validar el email con una expresión regular
+                        if (!/\S+@\S+\.\S+/.test(email)) {
+                            alert("Introduce un correo electrónico válido.");
+                            return;
+                        }
+
+                        // Crear FormData para enviar datos
+                        const formData = new FormData();
+                        formData.append("fullname", nombre);
+                        formData.append("email", email);
+                        formData.append("message", mensaje);
+
+                        // Enviar los datos con Fetch API
+                        fetch("enviarcorreo.php", {
+                            method: "POST",
+                            body: formData
+                        })
+                        .then(response => response.text())
+                        .then(data => {
+                            if (data.trim() === "success") {
+                                alert("Nos contactaremos");
+                                form.reset();  // Limpiar formulario
+                                submitButton.disabled = true; // Deshabilitar botón después del envío
+                            } else if (data.trim() === "invalid") {
+                                alert("Por favor, introduce un correo válido.");
+                            } else {
+                                alert("Hubo un error al enviar el mensaje. Inténtalo de nuevo.");
+                            }
+                        })
+                        .catch(error => {
+                            console.error("Error:", error);
+                            alert("Hubo un error al enviar el formulario.");
+                        });
+                    });
+
+                        // Habilitar el botón cuando el formulario esté completo
+                        form.addEventListener("input", function () {
+                            const inputs = form.querySelectorAll("[data-form-input]");
+                            let allFilled = true;
+                            inputs.forEach(input => {
+                                if (input.value.trim() === "") {
+                                    allFilled = false;
+                                }
+                            });
+                            submitButton.disabled = !allFilled;
+                        });
+                    });
+                    </script>
+                    
                 </section>
             </article>
         </div>
