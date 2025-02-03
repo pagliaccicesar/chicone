@@ -71,7 +71,7 @@ a {text-decoration: none; }
 
 li {list-style: none; }
 
-img, ion-icon, a, button, time, span { display: block; }
+img, ion-icon, a, button, time, span { display: block; border-radius: 8% }
 
 button {
     font: inherit;
@@ -116,7 +116,7 @@ main {
     padding: 15px;
 }
 
-    .sidebar.active { max-height: 405px; }
+.sidebar.active { max-height: 405px; }
 
 .separator {
     width: 100%;
@@ -234,7 +234,7 @@ article { display: none; }
 
 .sidebar {
     margin-bottom: 15px;
-    max-height: 112px;
+    max-height: 122px;
     overflow: hidden;
     padding: 15px;
     transition: var(--transition2);
@@ -247,15 +247,16 @@ article { display: none; }
     align-items: center;
     gap: 15px;
 }
-
-
-
 .avatar-box {
     background: var(--bg-gradient-onyx);
-    border-radius: 20px;
+    /*border-radius: 20px;*/
 }
 
-
+@media (max-width: 1200px) {
+    .avatar-box img {        
+        border-radius: 15%;
+    }
+}
 .info-content .name {
     font-family: "Russo One", serif;
     color: green;
